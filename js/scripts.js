@@ -7,6 +7,7 @@ const apiCountryURL = "https://countryflagsapi.com/png/"
 
 const cityInput = document.querySelector('#city-input')
 const searchBtn = document.querySelector('#search')
+const chk = document.getElementById('chk')
  
 const cityElement = document.querySelector("#city")
 const tempElement = document.querySelector("#temperature span")
@@ -49,6 +50,10 @@ const showWeatherData = async(city) => {
 
 
 //Eventos
+chk.addEventListener('change',() => {
+    document.body.classList.toggle('dark')
+})
+
 searchBtn.addEventListener('click', (e) =>{
     e.preventDefault()
 
