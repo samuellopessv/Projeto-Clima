@@ -9,6 +9,7 @@ const cityInput = document.querySelector('#city-input')
 const searchBtn = document.querySelector('#search')
 const chk = document.getElementById('chk')
 const Container = document.getElementById("container")
+
  
 const cityElement = document.querySelector("#city")
 const tempElement = document.querySelector("#temperature span")
@@ -28,6 +29,7 @@ const getWeatherData = async(city) => {
     const data = await res.json()
 
     return data
+    
 
 }
 
@@ -51,13 +53,26 @@ const showWeatherData = async(city) => {
 
 
 //Eventos
+
 chk.addEventListener('change',() => {
     document.body.classList.toggle('dark')
-    container.style.backgroundColor = 'black';
-
     
 
+
 })
+let corAtual = 'preto'; // Inicia com a cor preta
+
+function mudarCor() {
+    if (corAtual === 'preto') {
+        Container.style.backgroundColor = 'black';
+        corAtual = 'customColor';
+    } else {
+        Container.style.backgroundColor = '#5c54ed';
+        corAtual = 'preto';
+    }
+}
+    
+
 
 searchBtn.addEventListener('click', (e) =>{
     e.preventDefault()
